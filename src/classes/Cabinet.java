@@ -1,34 +1,37 @@
 package classes;
 
 import abstracts.Device;
-import abstracts.Numerable;
-import interfaces.Printable;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
-public class Cabinet extends Numerable implements Printable {
-    private Device dev;
-    private LinkedList<Person> employeeList;
+public class Cabinet {
+    private Device cabinetDevice;
+    private ArrayList<Employee> employeeList;
+    private String cabinetUniqueID;
 
-    public Cabinet(String id){
-        super(id);
-        employeeList = new LinkedList<>();
+    public Cabinet(String cabinetID) {
+        cabinetUniqueID = cabinetID;
+        employeeList    = new ArrayList<>();
     }
 
-    public void AddDevice(Device dev) {
-        this.dev = dev;
+    public void setDevice(Device dev) {
+        this.cabinetDevice = dev;
     }
 
-    public void AddEmployee(Person p) {
+    public void addEmployee(Employee p) {
         employeeList.add(p);
     }
 
-    @Override
-    public void PrintAll() {
-        System.out.println("Cabinet id: "+id+".\nDevice is: "+dev.name+", id: "+dev.id+", status: "+dev.status+". Employee list: ");
 
-        for (Person p : employeeList) {
-            p.PrintAll();
+    public void printCabinetInfo() {
+        System.out.println("Cabinet id: " + cabinetUniqueID +
+                ".\nDevice is: " + cabinetDevice.getDeviceName() + "," +
+                " id: " + cabinetDevice.getDeviceID() + ", status: " +
+                cabinetDevice.getDeviceCurrentStatus() + ". Employee list: ");
+
+        for(int end = employeeList.size(), i = 0; i < end; i++) {
+            employeeList.get(i).printEmployeeInfo();
         }
     }
+
 }

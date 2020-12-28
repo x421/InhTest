@@ -1,20 +1,33 @@
 package abstracts;
 
-public abstract class Device extends Numerable {
-    public Boolean status;
-    public String name;
+public abstract class Device {
+    protected Boolean deviceCurrentStatus;
+    protected String deviceName;
+    protected String deviceUniqueID;
 
-    public Device(String name, String id){
-        super(id);
-        this.name = name;
-        status = false;
+    public Device(String name, String id) {
+        deviceUniqueID      = id;
+        deviceName          = name;
+        deviceCurrentStatus = false;
     }
 
-    public abstract void Work();
+    public String getDeviceName() {
+        return deviceName;
+    }
 
-    public void Switch(){
-        status = !status;
-        System.out.println("Device name: "+name+" id: "+id+" status: "+status);
+    public String getDeviceID() {
+        return deviceUniqueID;
+    }
+
+    public String getDeviceCurrentStatus() {
+        return deviceUniqueID;
+    }
+
+    public abstract void work();
+
+    public void changeDeviceStatus() {
+        deviceCurrentStatus = !deviceCurrentStatus;
+        System.out.println("Device name: " + deviceName + " id: " + deviceUniqueID + " status: " + deviceCurrentStatus);
     }
 
 }

@@ -1,8 +1,8 @@
 package main;
 
 import classes.Cabinet;
+import classes.Employee;
 import classes.Office;
-import classes.Person;
 import classes.Scanner;
 
 public class Main {
@@ -10,11 +10,11 @@ public class Main {
     public static void main(String[] args) {
 	    Office of = new Office();
 	    Cabinet c = new Cabinet("314");
-	    c.AddDevice(new Scanner("1", "2"));
-	    c.AddEmployee(new Person("1", "2"));
-        c.AddEmployee(new Person("3", "4"));
+	    c.setDevice(new Scanner("1", "2"));
+	    c.addEmployee(new Employee("1", "2"));
+        c.addEmployee(new Employee("3", "4"));
 	    of.addCabinet(c);
 
-	    of.PrintAll();
+	    of.printOfficeInfo();
     }
 }

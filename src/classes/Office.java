@@ -1,29 +1,21 @@
 package classes;
 
-import classes.Cabinet;
-import interfaces.Printable;
+import java.util.ArrayList;
 
-import java.util.LinkedList;
-
-public class Office implements Printable {
-    private LinkedList<Cabinet> cabinets;
+public class Office {
+    private ArrayList<Cabinet> officeCabinets;
 
     public Office() {
-        cabinets = new LinkedList<Cabinet>();
+        officeCabinets = new ArrayList<Cabinet>();
     }
 
     public void addCabinet(Cabinet c) {
-        cabinets.add(c);
+        officeCabinets.add(c);
     }
 
-
-    @Override
-    public void PrintAll() {
-        var it = cabinets.iterator();
-
-        while(it.hasNext()) {
-            Cabinet c = it.next();
-            c.PrintAll();
+    public void printOfficeInfo() {
+        for(int end = officeCabinets.size(), i = 0; i < end; i++) {
+            officeCabinets.get(i).printCabinetInfo();
         }
     }
 }
