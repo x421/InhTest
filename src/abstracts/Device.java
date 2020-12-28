@@ -1,14 +1,25 @@
+/**
+ * Базовый класс для устроства из кабинета.
+ * @author x421
+ * @version 1.0
+ */
+
 package abstracts;
 
 public abstract class Device {
-    protected Boolean deviceCurrentStatus;
+    protected DeviceStatus deviceCurrentStatus;
     protected String deviceName;
     protected String deviceUniqueID;
+
+    public enum DeviceStatus {
+        OFF,
+        ON
+    }
 
     public Device(String name, String id) {
         deviceUniqueID      = id;
         deviceName          = name;
-        deviceCurrentStatus = false;
+        deviceCurrentStatus = DeviceStatus.OFF;
     }
 
     public String getDeviceName() {
@@ -26,8 +37,9 @@ public abstract class Device {
     public abstract void work();
 
     public void changeDeviceStatus() {
-        deviceCurrentStatus = !deviceCurrentStatus;
-        System.out.println("Device name: " + deviceName + " id: " + deviceUniqueID + " status: " + deviceCurrentStatus);
+        deviceCurrentStatus = (deviceCurrentStatus == DeviceStatus.OFF) ? DeviceStatus.ON : DeviceStatus.OFF;
+        System.out.println("Device name: " + deviceName + " id: " + deviceUniqueID + " status: " +
+                ((deviceCurrentStatus == DeviceStatus.OFF) ? "not working" : "working"));
     }
 
 }

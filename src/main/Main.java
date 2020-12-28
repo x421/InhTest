@@ -8,13 +8,17 @@ import classes.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	    Office of = new Office();
-	    Cabinet c = new Cabinet("314");
-	    c.setDevice(new Scanner("1", "2"));
-	    c.addEmployee(new Employee("1", "2"));
-        c.addEmployee(new Employee("3", "4"));
-	    of.addCabinet(c);
+	    Office office = new Office();
 
-	    of.printOfficeInfo();
+	    Cabinet cabinet314 = new Cabinet("314");
+
+		cabinet314.setDevice(new Scanner("1", "2"));
+
+		cabinet314.addEmployee(new Employee("1", "2"));
+		cabinet314.addEmployee(new Employee("3", "4"));
+
+		office.addCabinet(cabinet314);
+
+		office.printOfficeInfo();
     }
 }

@@ -1,3 +1,10 @@
+/**
+ * Класс офиса. Содержит в себе
+ * множество кабинетов
+ * @author x421
+ * @version 1.0
+ */
+
 package classes;
 
 import java.util.ArrayList;

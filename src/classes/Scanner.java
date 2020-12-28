@@ -1,3 +1,9 @@
+/**
+ * Класс сканера
+ * @author x421
+ * @version 1.0
+ */
+
 package classes;
 
 import abstracts.Device;

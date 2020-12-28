@@ -1,3 +1,9 @@
+/**
+ * Класс сотрудника
+ * @author x421
+ * @version 1.0
+ */
+
 package classes;
 
 public class Employee {
